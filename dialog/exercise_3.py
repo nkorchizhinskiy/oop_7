@@ -1,8 +1,10 @@
+import sys
 from PyQt5.QtWidgets import QDialog,\
                             QLabel,\
                             QRadioButton,\
                             QDoubleSpinBox,\
-                            QMessageBox
+                            QMessageBox, \
+                            QPushButton
                             
 
 
@@ -17,6 +19,7 @@ class Exercise_3(QDialog):
         
     def _create_window(self):
         self.resize(400, 250)
+        self.setWindowTitle("A +/* B")
 
     def _create_widgets(self):
         #// Create Labels.
@@ -67,6 +70,11 @@ class Exercise_3(QDialog):
         self.radio_button_second_choice.move(20, 180)
         self.radio_button_third_choice.move(20, 210)
     
+        #// Exit button
+        self.button_exit = QPushButton("Выход", self)
+        self.button_exit.move(300, 200)
+        self.button_exit.clicked.connect(lambda: self.close())
+
     def _set_spinboxes_signals(self):
         self.spinbox_first_data.valueChanged.connect(self._calculate_value)
         self.spinbox_second_data.valueChanged.connect(self._calculate_value)

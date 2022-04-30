@@ -1,7 +1,9 @@
+import sys
 from PyQt5.QtWidgets import QDialog,\
                             QLabel,\
                             QFrame,\
-                            QDoubleSpinBox
+                            QDoubleSpinBox,\
+                            QPushButton
                             
 
 
@@ -51,6 +53,11 @@ class Exercise_1(QDialog):
         self.spinbox_first_leg.move(100, 100)
         self.spinbox_second_leg.move(100, 200)
     
+        #// Exit button
+        self.button_exit = QPushButton("Выход", self)
+        self.button_exit.move(300, 200)
+        self.button_exit.clicked.connect(lambda: self.close())
+
     def _set_spinboxes_signals(self):
         self.spinbox_first_leg.valueChanged.connect(self._calculate_value)
         self.spinbox_second_leg.valueChanged.connect(self._calculate_value)

@@ -1,8 +1,10 @@
+import sys
 from PyQt5.QtWidgets import QDialog,\
                             QLabel,\
                             QCheckBox,\
                             QDoubleSpinBox,\
-                            QMessageBox
+                            QMessageBox, \
+                            QPushButton
                             
 
 
@@ -17,6 +19,7 @@ class Exercise_4(QDialog):
         
     def _create_window(self):
         self.resize(400, 250)
+        self.windowTitle("X and Y and Z")
 
     def _create_widgets(self):
         #// Create Labels.
@@ -60,12 +63,15 @@ class Exercise_4(QDialog):
         self.checkbox_second_choice = QCheckBox("Y = A / B", self)
         self.checkbox_third_choice  = QCheckBox("Z = A * B", self)
 
-        # self.radio_button_first_choice.setChecked(True)
-        
         #// Moving Radiobuttons.
         self.checkbox_first_choice.move(20, 150)
         self.checkbox_second_choice.move(20, 180)
         self.checkbox_third_choice.move(20, 210)
+        
+        #// Exit button
+        self.button_exit = QPushButton("Выход", self)
+        self.button_exit.move(300, 200)
+        self.button_exit.clicked.connect(lambda: self.close())
     
     def _set_spinboxes_signals(self):
         self.spinbox_first_data.valueChanged.connect(self._calculate_value)

@@ -1,7 +1,9 @@
+import sys
 from PyQt5.QtWidgets import QDialog,\
                             QLabel,\
                             QDoubleSpinBox,\
-                            QSpinBox
+                            QSpinBox, \
+                            QPushButton
                             
 
 
@@ -38,7 +40,7 @@ class Exercise_2(QDialog):
         self.label_acceleration.move(30, 150)
         self.label_time.move(30, 200)
         self.label_result_data.move(250, 100)
-        self.label_distance.move(250, 200)
+        self.label_distance.move(250, 150)
 
         #// Create spinboxes
         self.spinbox_start_speed = QDoubleSpinBox(self)
@@ -61,6 +63,11 @@ class Exercise_2(QDialog):
         self.spinbox_acceleration.move(100, 150)
         self.spinbox_time.move(100, 200)
     
+        #// Exit button
+        self.button_exit = QPushButton("Выход", self)
+        self.button_exit.move(300, 220)
+        self.button_exit.clicked.connect(lambda: self.close())
+
     def _set_spinboxes_signals(self):
         self.spinbox_start_speed.valueChanged.connect(self._calculate_value)
         self.spinbox_acceleration.valueChanged.connect(self._calculate_value)
