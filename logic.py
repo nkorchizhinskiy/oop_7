@@ -8,8 +8,6 @@ from dialog.exercise_1 import Exercise_1
 from dialog.exercise_2 import Exercise_2
 from dialog.exercise_3 import Exercise_3
 from dialog.exercise_4 import Exercise_4
-from dialog.exercise_5 import Exercise_5
-from dialog.exercise_6 import Exercise_6
 
 
 
@@ -31,13 +29,11 @@ class MainWindow(QMainWindow):
         line_algorithm = QMenu("Линейный алгоритм", self)
         line_algorithm.addAction(self.open_exercise_1_action)
         line_algorithm.addAction(self.open_exercise_2_action)
-        line_algorithm.addAction(self.open_exercise_3_action)
-        line_algorithm.addAction(self.open_exercise_4_action)
 
         #// Branching.
         branching = QMenu("Ветвления", self)
-        branching.addAction(self.open_exercise_5_action)
-        branching.addAction(self.open_exercise_6_action)
+        branching.addAction(self.open_exercise_3_action)
+        branching.addAction(self.open_exercise_4_action)
 
         #// Add to menu.
         menu_bar.addMenu(line_algorithm)
@@ -51,12 +47,10 @@ class MainWindow(QMainWindow):
         #// Line algorithm
         self.open_exercise_1_action = QAction("Задание 1", self)
         self.open_exercise_2_action = QAction("Задание 2", self)
-        self.open_exercise_3_action = QAction("Задание 3", self)
-        self.open_exercise_4_action = QAction("Задание 4", self)
         
         #// Branching
-        self.open_exercise_5_action = QAction("Задание 5", self)
-        self.open_exercise_6_action = QAction("задание 6", self)
+        self.open_exercise_3_action = QAction("Задание 3", self)
+        self.open_exercise_4_action = QAction("Задание 4", self)
 
     def _connect_actions(self):
         """Add signals to actions in menubar."""
@@ -64,12 +58,10 @@ class MainWindow(QMainWindow):
         #// Connect Line Algorithm.
         self.open_exercise_1_action.triggered.connect(self.open_exercise_1)
         self.open_exercise_2_action.triggered.connect(self.open_exercise_2)
-        self.open_exercise_3_action.triggered.connect(self.open_exercise_3)
-        self.open_exercise_4_action.triggered.connect(self.open_exercise_4)
 
         #// Connect Branhing.
-        self.open_exercise_5_action.triggered.connect(self.open_exercise_5)
-        self.open_exercise_6_action.triggered.connect(self.open_exercise_6)
+        self.open_exercise_3_action.triggered.connect(self.open_exercise_3)
+        self.open_exercise_4_action.triggered.connect(self.open_exercise_4)
 
     #// Connecting functions.
     def open_exercise_1(self):
@@ -88,13 +80,6 @@ class MainWindow(QMainWindow):
         self.window = Exercise_4()
         self.window.show()
     
-    def open_exercise_5(self):
-        self.window = Exercise_5()
-        self.window.show()
-
-    def open_exercise_6(self):
-        self.window = Exercise_6()
-        self.window.show()
 
 
 
