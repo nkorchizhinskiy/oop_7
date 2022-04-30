@@ -19,7 +19,7 @@ class Exercise_4(QDialog):
         
     def _create_window(self):
         self.resize(400, 250)
-        self.windowTitle("X and Y and Z")
+        self.setWindowTitle("X and Y and Z")
 
     def _create_widgets(self):
         #// Create Labels.
